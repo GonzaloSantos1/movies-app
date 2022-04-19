@@ -1,0 +1,30 @@
+<div class="row p-4">
+  <div class="col col-md-9 pe-5 text-white">
+    <h1>
+      {{ movie.title }}<span class="text-white ps-4">{{ movie.vote_average }}/10</span>
+    </h1>
+    <h2 class="text-white" *ngIf="movie.original_language !== 'en'">
+      {{ movie.original_title }}
+    </h2>
+    <p *ngIf="movie.tagline">"{{ movie.tagline }}"</p>
+    <hr />
+    <p>{{ movie.release_date.substr(0, 4) }} . {{ getRuntime() }}</p>
+    <p>Language: {{ movie.original_language }}</p>
+    <p>Country: {{ movie.production_countries[0].name }}</p>
+    <p>
+      Genres:
+      <span *ngFor="let genre of movie.genres">{{ genre.name }} </span>
+    </p>
+
+    <hr />
+    <h4>Storyline:</h4>
+    <p>{{ movie.overview }}</p>
+  </div>
+  <div class="col col-md-3 ms-auto">
+    <img
+      class="img-thumbnail"
+      src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}"
+      [alt]="movie.title"
+    />
+  </div>
+</div>

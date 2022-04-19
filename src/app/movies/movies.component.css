@@ -1,0 +1,13 @@
+img {
+  max-width: auto;
+  max-height: 50%;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card {
+  background-color: #101010;
+  color: white;
+}
